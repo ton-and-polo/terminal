@@ -38,9 +38,22 @@ first_name=$1
 last_name=$2
 
 # For loop:
-echo "The num of args is ${num_args}."
-for argument in "$@"; do
-	echo "${argument}"
+# a)
+for i in {1..5}  # {sart..stop..step}
+do
+	echo "Repeat ${i}"
+done
+
+# b)
+for (( i=1; i<=10; i++ ))
+do
+	echo $i
+done
+
+# c)
+for (( ; ; ))
+do
+	echo "infinite loop"
 done
 
 
