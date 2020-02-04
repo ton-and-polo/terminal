@@ -1,0 +1,14 @@
+
+# Execute commands without keeping them in history:
+setopt HIST_IGNORE_SPACE
+
+
+# Aliases:
+alias ll="ls -lah"
+alias c="clear"
+alias grep="grep --color=auto"
+alias history="h"
+
+# Git aliases:
+alias gs="git status"
+alias gg="git log --oneline --graph --all"
