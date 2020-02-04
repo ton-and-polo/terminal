@@ -1,0 +1,162 @@
+# Synopsis file:
+
+
+# Exit code:
+0 - OK
+1-255 - an error
+But you can return error variable by typing - $?
+
+
+# Arguments:
+name="Jon"
+age=25
+Argurmets that you passed to the scritp will be: ${1}, ${2}, ... ${n}
+
+# Function arguments:
+function arg1 arg2 arg3
+
+
+# Run command inside a string:
+- echo "Message `your command`"  # So, you need to write code inside back ticks.
+- echo "Message $(your command)"  # NOTE! A new syntax.
+
+
+# IO (stdin and stdout):
+- >& file_name
+
+
+# Comment line:
+- ## your_comment
+
+
+# Variables:
+- var_name='value'
+- my_num=6
+
+
+# execution mask:
+- 1=x
+- 4=r
+- 2=w
+- user,group,other:        u  g  o
+- e.g. 754                -rwxr-xr--
+
+
+# Run script:
+- source <scrip_file>  # integrate all your vars to the shell
+- ./<scrip_file>  # don't integrate your vars
+
+
+# Test:
+- [ condition ] # old syntax
+- ( condition)  # new syntax
+- !=  # not equal
+- -z  # zero length. e.g. nully="", so [ -z $nully ] returns 0
+- -n  # not Null. e.g. str="test", so [ -n $str ] retrns 0
+- -x  # e.g [ -x file ] returns 0
+
+
+# Archive:
+- tar -zcvf <archive>.gzf <source_dir>  # to create an archive
+- tar -zxf <archive>.gzf # to unarchive
+- you can youse your format like .zip
+
+
+# Stdiout and write to file:
+- e.g. echo $(date) | tee -a <dist_file>
+- -a for append  
+
+
+# Gateway:
+netstat -nr | grep "default" | head -1
+
+
+# Basic ssh command:
+<user_name>@<ip_address>
+
+- passwd
+- keys: ssh-keygen
+  This command create private key at: ~/.shh/id_rsa
+  and public key at:                  ~/.ssh/id_rsa.pub
+
+
+
+# Redo your last command as root:
+sudo !!
+
+
+# Edit your las commadn in default editor:
+fc
+fc -e <text_editor>  # e.g. fc -e vim
+fc -l  # list your last commads, so you can edit an old command by: fc <number>
+
+
+# Create folders:
+mkdir -p <outer_dir>/{folder1,folder2}  # using regex
+
+
+# Sudo session:
+sudo -i  # or sudo -s
+
+
+# Change user:
+su <user_name>  # change user
+<commmdands>
+exit
+
+
+# View all users:
+users
+
+# Write to output and file at the same time:
+ls -lah | tee <file>
+tee -a <file>  # for append to the given file
+
+
+# Inverse grep:
+grep -v
+
+# Change yourser password:
+passwd
+
+
+# Compare files:
+cmp file1 file2
+
+
+# List all your background commands:
+jobs -l
+
+
+# Bring your background command to the foreground:
+fg <command>/<num_in_jobs_list>  # e.g. fg vim/fg %1 (here vim is your [1] in your josbs -l)
+ 
+
+# Shell:
+echo $SHELL  # default shel
+echo $0  # current shel
+
+
+# Change shell:
+cat /etc/shells  # list all shells
+chsh <path/to/shell>
+
+
+# System info:
+uname -a  # all infromation
+uname -v  # version of your system
+uname -r  # relise date
+
+
+# Check your current IP address:
+ifconfig <interface>  # e.g. ifconfig en0
+
+
+# Print last lines of file:
+tail -n1 -f file_name  # -n number of lines, -f forground
+
+
+# To repeat command n times/to run it forever:
+repeat 10 echo foo
+# or
+watch -n 1 -x echo foo  # Liunx command
