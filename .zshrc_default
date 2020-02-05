@@ -7,7 +7,12 @@ setopt HIST_IGNORE_SPACE
 alias ll="ls -lah"
 alias c="clear"
 alias grep="grep --color=auto"
-alias history="h"
+alias h="history"
+
+# Apps aliases:
+alias st="open -a 'Sublime Text' ./"
+alias pc="open -a 'Pycharm CE' ./"
+alias ij="open -a 'IntelliJ IDEA CE' ./"
 
 # Git aliases:
 alias gs="git status"
